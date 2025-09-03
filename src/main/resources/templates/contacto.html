@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto</title>
+  <link rel="stylesheet" th:href="@{/css/estilos.css}">
+  <style>
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+
+    /* ✅ Estilo para el desvanecido */
+    .fade-out {
+      opacity: 1;
+      transition: opacity 1s ease-out;
+    }
+
+    .fade-out.hidden {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"></div>
+
+<section class="contacto-formulario">
+  <h2>Contáctanos</h2>
+  <p>¿Tienes preguntas o quieres trabajar con nosotros? ¡Escríbenos!</p>
+
+  <form th:action="@{/contacto}" th:object="${contacto}" method="post">
+    <input type="text" th:field="*{nombre}" placeholder="Tu nombre">
+    <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="error"></div>
+
+    <input type="email" th:field="*{correo}" placeholder="Tu correo">
+    <div th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}" class="error"></div>
+
+    <textarea th:field="*{mensaje}" rows="5" placeholder="Escribe tu mensaje"></textarea>
+    <div th:if="${#fields.hasErrors('mensaje')}" th:errors="*{mensaje}" class="error"></div>
+
+    <button type="submit">Enviar mensaje</button>
+
+    <!-- ✅ Mensaje con clase para desvanecido -->
+    <div id="mensajeExito"
+         th:if="${exito}"
+         class="fade-out"
+         style="margin-top: 1rem; padding: 0.8rem; color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 5px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+      <strong th:text="${exito}"></strong>
+    </div>
+  </form>
+</section>
+
+<!-- ✅ Script para aplicar fade-out -->
+<script>
+  const mensaje = document.getElementById('mensajeExito');
+  if (mensaje) {
+    setTimeout(() => {
+      mensaje.classList.add('hidden');
+      setTimeout(() => mensaje.style.display = 'none', 1000); // espera al fade-out (1s)
+    }, 5000); // espera 5s antes de empezar fade-out
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Suscripción - Tregenia</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 2rem;
+        }
+
+        input, button {
+            padding: 0.5rem;
+            width: 100%;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: -0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .exito {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            animation: fadeOut 5s ease forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Formulario de Suscripción</h1>
+
+<form th:action="@{/suscribirse}" th:object="${suscripcion}" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" th:field="*{nombre}" placeholder="Tu nombre">
+    <div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="error"></div>
+
+    <label for="correo">Correo electrónico:</label>
+    <input type="email" th:field="*{correo}" placeholder="Tu correo">
+    <div th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}" class="error"></div>
+
+    <button type="submit">Suscribirse</button>
+
+    <div th:if="${exito}" class="exito">
+        <strong th:text="${exito}"></strong>
+    </div>
+</form>
+
+</body>
+</html>

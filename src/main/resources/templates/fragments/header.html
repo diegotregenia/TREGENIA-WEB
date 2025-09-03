@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head></head>
+<body>
+<header th:fragment="header" class="header">
+    <nav class="navbar">
+        <div class="logo-container">
+            <img th:src="@{/img/logo.png}" alt="Logo Tregenia" class="logo">
+            <span class="nombre-empresa">TREGENIA</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#clientes">Clientes</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#suscribirse">Suscribirse</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+</body>
+</html>

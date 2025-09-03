@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Suscripciones</title>
+</head>
+<body>
+<h1>Lista de suscripciones</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Fecha de suscripción</th>
+    </tr>
+    <tr th:each="s : ${suscripciones}">
+        <td th:text="${s.id}">1</td>
+        <td th:text="${s.nombre}">Nombre</td>
+        <td th:text="${s.correo}">Correo</td>
+        <td th:text="${s.fechaSuscripcion}">Fecha</td>
+    </tr>
+</table>
+</body>
+</html>

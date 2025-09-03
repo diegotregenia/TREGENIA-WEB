@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tregenia</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+<!-- Incluir el encabezado -->
+<div th:replace="fragments/header :: header"></div>
+
+<!-- Sección principal con banner -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Tecnología con propósito humano</h1>
+        <p>Conectamos instituciones con soluciones digitales reales</p>
+        <a href="#nosotros" class="boton">Conócenos</a>
+    </div>
+</section>
+
+<!-- Sección introductoria -->
+<section class="intro">
+    <div class="intro-contenedor">
+        <h2>Desarrollo Local, Impacto Real</h2>
+        <p>
+            En <strong>Tregenia</strong>, nos especializamos en impulsar la transformación digital de instituciones públicas y privadas a través de soluciones tecnológicas confiables, accesibles y centradas en las personas.
+        </p>
+    </div>
+</section>
+
+<!-- Sección de servicios -->
+<section class="servicios">
+    <h2>Nuestros Servicios</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Transformación Digital</h3>
+            <p>Digitalizamos procesos públicos y privados con soluciones a medida.</p>
+        </div>
+        <div class="card">
+            <h3>Desarrollo de Sistemas Web</h3>
+            <p>Construimos plataformas intuitivas, accesibles y escalables para instituciones.</p>
+        </div>
+        <div class="card">
+            <h3>Consultoría Técnica</h3>
+            <p>Acompañamos a instituciones en decisiones tecnológicas estratégicas y seguras.</p>
+        </div>
+    </div>
+</section>
+<!-- Sección de clientes -->
+<section class="clientes" id="clientes">
+    <h2>Clientes y Alianzas</h2>
+    <p class="clientes-texto">
+        Pronto presentaremos a las instituciones y organizaciones que confían en Tregenia
+        para impulsar su transformación digital.
+    </p>
+    <div class="clientes-logo-placeholder">
+        <p>[Espacio reservado para logos de clientes]</p>
+    </div>
+</section>
+<!-- Sección de proyectos realizados-->
+<section class="proyectos" id="proyectos">
+    <h2>Proyectos Realizados</h2>
+    <p class="proyectos-texto">
+        Estamos en fase de implementación. Muy pronto compartiremos nuestras soluciones desarrolladas para instituciones públicas y privadas.
+    </p>
+    <div class="proyectos-galeria">
+        <div class="proyecto-caja">
+            <div class="proyecto-placeholder">[Proyecto 1]</div>
+        </div>
+        <div class="proyecto-caja">
+            <div class="proyecto-placeholder">[Proyecto 2]</div>
+        </div>
+        <div class="proyecto-caja">
+            <div class="proyecto-placeholder">[Proyecto 3]</div>
+        </div>
+    </div>
+</section>
+<!-- Sección de suscripcion a pagina-->
+<section class="suscripcion" id="suscribirse">
+    <h2>Suscríbete al Boletín</h2>
+    <p>Recibe noticias, avances y nuevas soluciones directamente en tu correo.</p>
+    <form class="form-suscripcion" method="post" action="/suscribirse">
+        <input type="email" name="correo" placeholder="Ingresa tu correo electrónico" required>
+        <button type="submit">Suscribirme</button>
+    </form>
+</section>
+<!-- Sección de contacto-->
+<section class="contacto" id="contacto">
+    <h2>Contáctanos</h2>
+    <p>¿Tienes dudas o quieres saber más? Escríbenos y te responderemos a la brevedad.</p>
+    <form class="form-contacto" method="post" action="/contacto">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu correo electrónico" required>
+        <textarea name="mensaje" placeholder="Tu mensaje" rows="5" required></textarea>
+        <button type="submit">Enviar Mensaje</button>
+    </form>
+</section>
+<!-- footer(pie de pagina)-->
+<footer class="footer">
+    <div class="footer-contenido">
+        <p>&copy; 2025 Tregenia. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+</body>
+</html>
